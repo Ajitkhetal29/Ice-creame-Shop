@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="/static/icecreame/images/brand.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+
+    <title> {% block title %}{% endblock title %}</title>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function() {
+                $('.alert').css("display", "none")
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(window).bind('scroll', function() {
+                // var navHeight = $(window).height() - 10;
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').addClass('fixed');
+                } else {
+                    $('.navbar').removeClass('fixed');
+                }
+            });
+        });
+
+        // When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Autour+One&display=swap');
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 26
+        }
+        
+        .social {
+            padding-left: 42%;
+            display: inline-flexbox;
+        }
+        
+        footer span,
+        h5 {
+            color: black;
+            font-weight: 900;
+        }
+        
+        footer span,
+        p {
+            font-size: large;
+            font-style: italic;
+        }
+        
+        .social a {
+            padding: 0 10px;
+            font-size: larger;
+            color: brown;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        .fixed {
+            position: fixed;
+            top: 0;
+            height: 70px;
+            z-index: 1 !important;
+            font-size: small !important;
+            color: black !important;
+            background-color: skyblue;
+        }
+        
+        .navbar a {
+            color: black;
+        }
+        
+        .navbar a:hover {
+            text-decoration: none !important;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .form-inline a:hover {
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg w-100" style="font-size: larger;color:white;font-weight: 400PX;background-color: #CCCCCC;">
+
+        <!-- Example: A heart icon -->
+        <div>
+            <a href="/icecreame"><img src="/static/icecreame/images/brand.png" alt="" style="width: 50px;"></a>
+        </div>
+        <a class="navbar-brand" href="/icecreame">ICE CREAME</a>
+        <button class="navbar-toggler btn-warning" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="material-symbols-outlined">
+                menu
+                </span>
+        </button> {% if user.is_superuser or user.is_authenticated%}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/icecreame/">HOME <span class="sr-only">(current)</span></a>
+                </li>
+                {% if user.is_superuser %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ADD PRODUCT
+              </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/icecreame/add">Ice Creams</a>
+                        <a class="dropdown-item" href="/icecreame/add/softy">Softy</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Family Pack</a>
+                    </div>
+                </li>
+
+                {% endif %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                MENUE
+              </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/icecreame/icecreame/">Ice Creams</a>
+                        <a class="dropdown-item" href="/icecreame/softy">Softy</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Family Pack</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/icecreame/contact" tabindex="-1" aria-disabled="true">CONTACT US</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/icecreame/review" tabindex="-1" aria-disabled="true">REVIEWS</a>
+                </li>
+            </ul>
+            {% endif %}
+
+            <form class="form-inline my-2 my-lg-0 f-a" style="font-size: medium;">
+                {% if user.is_superuser %}
+                <a class="nav-link " href="/profile/" tabindex="-1" aria-disabled="true" style="color: black;text-decoration: none;"><span class="material-symbols-outlined">
+                    account_circle
+                    </span>PROFILE</a>
+                <a class="nav-link " href="/logout/" tabindex="-1" aria-disabled="true" style="color: black;text-decoration: none;"><span class="material-symbols-outlined">
+                    logout
+                    </span>LOGOUT</a> 
+                <a class="nav-link " href="/icecreame/order_list/" tabindex="-1" aria-disabled="true" style="color: black;text-decoration: none;"><span class="material-symbols-outlined">
+                    list_alt
+                    </span>ORDERS</a>    {% elif user.is_authenticated %}
+                {% if user.profile.user_type == 'Cust' %}
+                <a class="nav-link " href="/icecreame/order_list/" tabindex="-1" aria-disabled="true" style="color: black;text-decoration: none;"><span class="material-symbols-outlined">
+                    list_alt
+                    </span>ORDERS</a>
+                <a class="nav-link " href="/icecreame/wishlist/" tabindex="-1" aria-disabled="true" style="color: black;text-decoration: none;"><span class="material-symbols-outlined">
+                    shopping_cart
+                    </span>CART</a>
+                <a class="nav-link " href="/profile/" tabindex="-1" aria-disabled="true" style="color: black;text-decoration: none;"><span class="material-symbols-outlined">
+                    account_circle
+                    </span>PROFILE</a>
+                <a class="nav-link " href="/logout/" tabindex="-1" aria-disabled="true" style="color: black;text-decoration: none;"><span class="material-symbols-outlined">
+                    logout
+                    </span>LOGOUT</a>{% endif %} {% else %}
+                <a href="/register/" class="nav-item nav-link btn btn-warning">Sign In</a>
+
+                <a href="/login/" class="nav-item nav-link btn btn-warning">Login</a> {% endif %}
+            </form>
+        </div>
+    </nav>
+
+    {% if messages %} {% for message in messages %}
+
+    <div class="alert alert-{{ message.tags }} alert-dismissible green show" role="alert" style="background: #FDEA49; color: black;">
+        <b> {{ message }} </b>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="color: black; right:1px ; background:yellow;">X</button>
+    </div>
+    {% endfor %} {% endif %} {% block body %} {% endblock body %}
+
+    <div class="container-1 " style="background-color:#999999;color: aliceblue;
+    "><br><br><br>
+        <footer class="row" style="margin-left: 6%;padding-top: 20px;">
+            <div class="col-md-3 text-center">
+                <span class="material-symbols-outlined">
+        <h1>Home</h1>
+        </span>
+                <h5>Address</h5>
+                <p> 255 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ipsum dolorem omnis.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <span class="material-symbols-outlined">
+        <h1>call</h1>
+        </span>
+                <h5>Contact Us</h5>
+                <p>+125-235-3256</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <span class="material-symbols-outlined">
+        mail
+        </span>
+                <h5>E-mail</h5>
+                <p>Icecreame@shop.com</p>
+            </div>
+
+            <div class="col-md-3 text-center">
+                <span class="material-symbols-outlined">
+        schedule
+        </span>
+                <h5>Opening Hours</h5>
+                <p>monday-friday: 2:00 pm - 6:00 pm <br> Saturday 2:00pm- 4:00pm</p>
+            </div>
+        </footer>
+        <div class="container">
+            <div class="social">
+                <a href="#" class="fab fa-facebook-f bl"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <hr>
+
+            <footer class="bg-dark pb-2" style="color: aliceblue;">
+                <div class="container text-center">
+                    <p class="font-italic  mb-0">&copy; Copyrights IceCream.com All rights reserved.</p>
+                </div>
+
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+{% extends 'icecreame/base.html' %} {% block title %}Detail | Icecreame Shop{% endblock title %} {% block body %}
+<br>
+<div class="container" style="background-image: url(/static/icecreame/images/bg-02.jpg);background-size: cover;"
+    <div class="container" style="min-height: 50vh;">
+        <div class="row" style="padding: 50px;">
+            <div class="col-md-4">
+                <img height="200px" width="300px" src="{{ item.item_image }}" class="card">
+            </div>
+
+            <div class="col-md-4">
+                <h3 style="font-family: 'Autour One', cursive;">{{ item.item_name }}</h3>
+                <p style="font-family: 'Satisfy', cursive;font-size: 25px;">{{ item.item_desc }}</p>
+                <h3>Price : ${{ item.item_price }}</h3>
+            </div>
+            <div class="col-md-4">
+                <!-- super user  -->
+                {% if user.is_superuser %}
+                <a href="{% url 'Icecreame:update_item' item.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'Icecreame:delete_item' item.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'Icecreame:index' %}" class="btn btn-success">Back</a>
+
+                <!-- Rest -->
+                {% elif user.is_authenticated and user.profile.user_type == 'Rest' %}
+                <a href="{% url 'Icecreame:update_item' item.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'Icecreame:index' %}" class="btn btn-success">Back</a>
+
+                <!-- Cust -->
+                {% elif user.is_authenticated and user.profile.user_type == 'Cust' %}
+                <a href="{% url 'Icecreame:add_to_wishlist' item.id %}"  class="btn btn-primary">Add to Wishlist</a>
+                <a href="{% url 'Icecreame:index' %}" class="btn btn-success">Back</a> {% endif %}
+
+            </div>
+        </div>
+    </div>
+    <br> {% if user.is_authenticated %}
+
+    <!-- red -->
+    {% if user.profile.user_type == 'Rest' or user.profile.user_type == 'Admin' %}
+    <div>
+        <h2 class="text-center">Recent Updates</h2>
+        <hr style="width: 80%;">
+    </div>
+
+
+    {% for obj in hist %}
+    <div class="row md-1">
+        <div class="col-md-8 offset-md-2 bg-danger text-white">
+            <div class="row">
+                <div class="col-md-3 text-left">{{ obj.prod_ref }}</div>
+                <div class="col-md-3 text-left">{{ obj.item_name }}</div>
+                <div class="col-md-3 text-left">{{ obj.event_datetime}}</div>
+                <div class="col-md-3 text-left">{{ obj.op_type }}</div>
+            </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+    <br> {% endfor %} {% endif %}
+
+    <br>
+
+    <!-- Green -->
+    {% if user.profile.user_type == 'Rest' or user.profile.user_type == 'Cust' or user.profile.user_type == 'Admin' %} {% for obj in oco %}
+    <div class="row md-1">
+        <div class="col-md-8 offset-md-2 bg-success text-white">
+            <div class="row">
+                <div class="col-md-2 text-left">{{ obj.order_id }}</div>
+                <div class="col-md-2 text-left">{{ obj.prod_code }}</div>
+                <div class="col-md-2 text-left">{{ obj.quantity}}</div>
+                <div class="col-md-2 text-left">{{ obj.user }}</div>
+                <div class="col-md-2 text-left">
+                    {% if user.profile.user_type == 'Cust' %}
+                    <a href="#" class="btn btn-warning btn-sm">
+                                Edit Qty
+                            </a> {% endif %}
+                </div>
+                <div class="col-md-2 text-left"> {% if user.profile.user_type == 'Cust' %}
+                    <a href="#" class="btn btn-warning btn-sm">
+                        Buy Now
+                    </a> {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+    </div>
+    <br> {% endfor %} {% endif %} {% endif %} 
+</div><br>
+{% endblock body %}

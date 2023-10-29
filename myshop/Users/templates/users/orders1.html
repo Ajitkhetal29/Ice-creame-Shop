@@ -1,0 +1,32 @@
+{% extends 'icecreame/base.html' %} {% block title %}Orders | Icecreame Shop{% endblock title %} {% block body %}
+
+
+<form method="POST">
+    {% csrf_token %}
+    <h2>Are you sure you want to confirm the order for {{ pdcd }} by {{ user }}</h2>
+    <button type="submit">Confirm</button>
+</form>
+
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+{% extends 'icecreame/base.html' %} {% block title %}User Login | Icecreame Shop{% endblock title %} {% block body %}
+
+
+<style>
+    .sign-in-form {
+        background-color: darkgrey;   background-image: url("/static/icecreame/images/5.jpg");
+        background-size: cover;
+        padding: 15px;
+    }
+    
+    .title {
+        margin: 5px;
+    }
+    
+    .title h2 {
+        text-transform: uppercase;
+    }
+    
+    .content-img img {
+        width: 150px;
+    }
+    
+    .content-form {
+        color: black;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+</style>
+<section class="sign-in-form">
+    <div class="title text-center">
+
+        <h2>Login User</h2>
+
+    </div>
+
+    <hr style="width: 80%;">
+    <div class="content text-center">
+
+        <div class="content-img">
+            <img src="/static/icecreame/images/user.png" alt="">
+        </div>
+        <hr style="width: 20%;">
+
+        <div class="content-form">
+            <form method="POST">
+                {% csrf_token %}
+                <label for="username">Username : </label>
+                <input type="text" name="username" id="username"><br><br>
+                <label for="password">Password : </label>
+                <input type="password" name="password" id="password"><br><br>
+                <hr style="width: 50%;">
+                <button class="btn btn-primary">Login</button>
+                <br><br>
+                <p>Have not Registered yet .. <a href="/register" class="btn btn-warning">Sign in </a></p>
+
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock body %}

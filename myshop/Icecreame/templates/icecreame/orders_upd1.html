@@ -1,0 +1,22 @@
+{% extends 'icecreame/base.html' %} {% block title %}Update Order | Icecreame Shop{% endblock title %} {% block body %}
+<br>
+
+<div class="container" style="background-image: url(/static/icecreame/images/bg-03.jpg)">
+    <br>
+    <h1 class="text-center " style="  color: brown;
+    font-family: 'Lilita One', sans-serif;">UPDATE ORDER </h1>
+    <hr style="width: 20%;;height:3px;border-width:0;color:darkturquoise;background-color:darkturquoise">
+    <div class="text-center">
+        <h6>Item Id : {{item1_id}} </h6>
+        <h6>Order Id : {{upd_order1_id}}</h6>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p>Quantity : {{form.quantity}}</p>
+            <p>User : {{form.user}}</p>
+
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+
+</div>
+<br> {% endblock body %}

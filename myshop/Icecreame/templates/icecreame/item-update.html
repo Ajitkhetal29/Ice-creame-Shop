@@ -1,0 +1,37 @@
+{% extends 'icecreame/base.html' %} {% block title %}Update | Icecreame Shop{% endblock title %} {% block body %}
+
+
+<div class="container text-center " style="min-height: 400px;background-image: url(/static/icecreame/images/bg-01.jpg);background-size: cover;">
+    <div class="row">
+        <div class="clo-md-2 offset-md-2">
+            <div class="card">
+                <div class="card-header ">
+                    <div class="card-title text-center">
+                        <h3>Update Item</h3>
+                    </div>
+                    <div class="card-body text-white bg-info">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div>
+                                <img src="{{item.item_image}}" alt="" style="width: 200px;height: 200px;border: 1px solid ;border-radius: 10px;">
+                            </div>
+                            <hr style="width: 80%;">
+                            <label>Item Name: </label><br> {{ form.item_name }}
+                            <br><label>Item Description: </label><br> {{ form.item_desc }}
+                            <br><label>Item Prod Code: </label><br> {{ form.prod_code }}
+                            <br><label>Item Price: </label><br> {{ form.item_price }}
+                            <br><label>Item Image: </label><br> {{ form.item_image }}
+                            <br><br>
+                            <h2 style="color: aliceblue;">Are you sure you want to Edit {{item.item_name}}</h2>
+                            <button type="submit" class="btn btn-warning ">Save Update</button>
+                            <a href="/icecreame/icecreame" class=" btn btn-success">NO</a> 
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock body %}

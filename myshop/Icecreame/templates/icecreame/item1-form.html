@@ -1,0 +1,32 @@
+{% extends 'icecreame/base.html' %} {% block title %}Add_Item | Icecreame Shop{% endblock title %} {% block body %}
+
+
+<div class="container text-center " style="min-height: 400px;margin-left:13%;margin-top: 5%;margin-bottom: 5%;background-image: url(/static/icecreame/images/bg-01.jpg);">
+    <div class="row">
+        <div class="clo-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-header ">
+                    <div class="card-title text-center">
+                        <h3>Item Form</h3>
+                    </div>
+                    <div class="card-body text-white bg-info">
+                        <form method="POST">
+                            {% csrf_token %}
+
+                            <label>Itme Name: </label><br> {{ form.item1_name }}
+                            <br><label>Itme Description: </label><br> {{ form.item1_desc }}
+                            <br><label>Itme Prod Code: </label><br> {{ form.prod1_code }}
+                            <br><label>Itme Price: </label><br> {{ form.item1_price }}
+                            <br><label>Itme Image: </label><br> {{ form.item1_image }}
+                            <br><br>
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock body %}

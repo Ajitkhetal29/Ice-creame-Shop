@@ -1,0 +1,558 @@
+ {% extends 'icecreame/base.html' %} {% block title %}Home | Icecreame Shop{% endblock title %} {% block body %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+</style>
+
+<!-- preloade js -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            document.querySelector(".preloader").style.display = "none";
+        }, 2000); // Adjust the delay as needed
+    });
+</script>
+<!-- top btn js -->
+<script>
+    $(document).ready(function() {
+        $(window).bind('scroll', function() {
+            // var navHeight = $(window).height() - 10;
+            if ($(window).scrollTop() > 50) {
+                $('#myBtn').css("display", "block")
+            } else {
+                $('#myBtn').css("display", "none")
+            }
+        });
+    });
+</script>
+
+<style>
+    /*Home section css  */
+    
+    .home {
+        width: 100%;
+        background-image: url("/static/icecreame/images/bg-02.jpg");
+        background-size: contain;
+        background-size: cover;
+        top: 0 !important;
+        padding: 0 20px 0 20px;
+    }
+    
+    .home .home-img {
+        padding-top: 0px !important;
+    }
+    
+    .home .home-img img {
+        width: 520px !important;
+    }
+    
+    .home .home-text {
+        text-align: center;
+        color: black;
+        padding-top: 25%;
+        padding-left: 15%;
+    }
+    
+    .home .small-txet {
+        color: green;
+        font-size: 30px;
+        font-weight: 600;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+    }
+    
+    .home .home-text .head-txt {
+        font-size: 45px;
+        font-weight: 600;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+    }
+    
+    .home .home-text .head-txt-big {
+        font-size: 100px;
+        font-weight: 900;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+    }
+    
+    .home button {
+        background-color: forestgreen;
+    }
+    
+    .home button:hover {
+        background-color: chocolate;
+    }
+    
+    .home a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .home a:hover {
+        color: white;
+        font-weight: bold;
+    }
+    /* Home ended */
+    /* top btn */
+    
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 101;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: red;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 4px;
+    }
+    
+    #myBtn:hover {
+        background-color: #555;
+    }
+    /*top btn end  */
+    /*** featurs Start ***/
+    
+    .featurs h1 {
+        color: black;
+        font-family: 'Lilita One', sans-serif;
+    }
+    
+    .featurs {
+        background-image: url("/static/icecreame/images/bg-02.jpg");
+        background-size: contain;
+    }
+    
+    .featurs .featurs-item .featurs-icon {
+        position: relative;
+        width: 120px;
+        height: 120px;
+    }
+    
+    .featurs .featurs-item .featurs-icon::after {
+        content: "";
+        width: 35px;
+        height: 35px;
+        background: var(--bs-secondary);
+        position: absolute;
+        bottom: -10px;
+        transform: translate(-50%);
+        transform: rotate(45deg);
+        background: var(--bs-secondary);
+    }
+    
+    .featurs .featurs-item .featurs-content h5 {
+        color: brown;
+    }
+    
+    .featurs .featurs-item .featurs-content p {
+        font-size: larger;
+    }
+    /*** featurs End ***/
+    /* about us  stratrd*/
+    
+    .about h2 {
+        color: black;
+        font-family: 'Lilita One', sans-serif;
+    }
+    
+    .about h2 {
+        color: black;
+        font-family: 'Lilita One', sans-serif;
+    }
+    
+    .about .container .about-head h3 {
+        font-family: 'Autour One', cursive;
+        font-size: 30px;
+    }
+    
+    .about .container .about-para p {
+        font-family: 'Satisfy', cursive;
+        font-size: 25px;
+    }
+    /* about us ended */
+    /* service start */
+    
+    .service {
+        padding: 10px;
+        background-image: url("/static/icecreame/images/bg-04.jpg");
+        background-size: cover;
+    }
+    
+    .service h2 {
+        color: white;
+        font-family: 'Lilita One', sans-serif;
+    }
+    
+    .service .service-item .service-content {
+        position: relative;
+        width: 250px;
+        height: 130px;
+        top: -50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px !important;
+    }
+    
+    .service a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .service-item img {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
+    }
+    
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    
+    .service-item:hover img {
+        opacity: 0.3;
+    }
+    
+    .service-item:hover .middle {
+        opacity: 1;
+    }
+    
+    .service-item .text {
+        background-color: #04AA6D;
+        color: white;
+        font-size: 16px;
+        padding: 16px 32px;
+    }
+    /* servce end */
+    /* menue section start */
+    
+    .menue {
+        padding: 10px;
+        background-color: #FFFFCC;
+        background-image: url("/static/icecreame/images/8.jpg");
+        background-size: contain;
+        backface-visibility: var(--bs-secondary);
+        justify-content: center;
+    }
+    
+    .menue h1 {
+        color: brown;
+        font-family: 'Lilita One', sans-serif;
+    }
+    
+    .menue h2 {
+        color: coral;
+        background-color: black;
+        justify-self: center;
+    }
+    
+    .menue .menue-1 .img-div {
+        overflow: hidden;
+        max-width: 200px;
+        max-height: 150px;
+    }
+    
+    .menue .menue-1 .img-div img {
+        transition: transform .5s ease;
+    }
+    
+    .menue .menue-1 img:hover {
+        transform: scale(1.5);
+    }
+    /* menue section end */
+    /* preloader */
+    
+    .preloader {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-image: url("/static/icecreame/images/bg-02.jpg");
+        background-size: cover;
+        /* Customize the background color */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    
+    .loader {
+        border: 4px solid black;
+        /* Customize the loader's colors */
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 2s linear infinite;
+        /* Customize the animation duration */
+    }
+    
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<!-- Preloader -->
+<div class="preloader">
+    <div class="loader"></div>
+</div>
+<!-- Preloader end -->
+<!-- Home Section -->
+
+<!-- top btn -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<!-- top btn end -->
+<section class="home">
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-4 home-img">
+                <img src="/static/icecreame/images/brand.png" alt="">
+            </div>
+            <div class=" col-md-8 ">
+                <div class="container home-text text-center " style="justify-content: center;">
+                    <div class="small-txet">
+                        100% ORGANIC
+                    </div>
+                    <div class="head-txt">
+                        HAND CRAFTED
+                    </div>
+                    <div class="head-txt-big">
+                        ICE CREAME
+                    </div>
+                    <div>
+                        <button class="btn"><a href="#menue">ORDER ONLINE</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<!-- Home section ended -->
+
+
+<!-- service section start -->
+<div class="container-fluid service py-5">
+    <h2 class="text-center"> OUR SERVICES</h>
+        <hr style="width: 20%;;height:3px;border-width:0;color:darkturquoise;background-color:darkturquoise">
+        <div class="container py-2">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <a href="/icecreame/icecreame/">
+                        <div class="service-item bg-secondary rounded border border-secondary">
+                            <img src="/static/icecreame/images/service-1.jpg" class="img-fluid rounded-top w-100" alt="" style="height: 400px;">
+                            <div class="middle">
+                                <div class="text">EXPLORE</div>
+                            </div>
+                            <div class="px-4 rounded-bottom" style="background-color:gold;">
+                                <div class="service-content text-center p-4 rounded" style="background-color: #73de08">
+                                    <h5 class="text-white"> ICECREAME</h5>
+                                    <h3 class="mb-0 text-dark">20% OFF</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="/icecreame/softy">
+                        <div class="service-item bg-dark rounded border border-dark">
+                            <img src="/static/icecreame/images/4.jpg" class="img-fluid rounded-top w-100" alt="" style="height: 400px;">
+                            <div class="middle">
+                                <div class="text">EXPLORE</div>
+                            </div>
+                            <div class="px-4 rounded-bottom" style="background-color:#666666;">
+                                <div class="service-content  text-center p-4 rounded" style="background-color: white;">
+                                    <h5 class=" text-dark ">SOFTY</h5>
+                                    <h3 class="mb-0 " style="color: #73de08;">Free Delivery</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 ">
+                    <a>
+                        <div class="service-item bg-dark border border-dark ">
+                            <img src="/static/icecreame/images/fs-6.jpg " class="img-fluid rounded-top w-100 " alt=" " style="height: 400px;">
+                            <div class="middle">
+                                <div class="text">EXPLORE</div>
+                            </div>
+                            <div class="px-4 rounded-bottom " style="background-color: #73de08">
+                                <div class="service-content text-center p-4 rounded " style="background-color:gold;">
+                                    <h5 class=" text-dark ">FAMILY PACK</h5>
+                                    <h3 class="mb-0 text-white">Discount 30$</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- service section end -->
+
+
+<!-- about us started -->
+<section class="about ">
+    <br>
+    <h2 class="text-center">OUR JOURNEY</h2>
+    <hr style="width: 20%;;height:3px;border-width:0;color:darkturquoise;background-color:darkturquoise">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="about-head">
+                    <br><br>
+                    <h3>HOW WE</h3>
+                    <h3>STATRED MAKING ICECREAME</H3>
+                    <br>
+                </div>
+                <div class="about-para">
+                    <p>Our story began in 2010, when Anna Francis, the founder of Dolcetti, baked her fist cupcakes for sale and offered the bakery to the nearest shop.</p>
+                    <p>The cakery was awesome and she was proposed to become a regular supplier of sweet bakery. Anna expanded the assortment and created promotional Instagram account</p>
+                    <p>Soon she decided to gather a team of like-minded people and start sher own sweet brand and open her own store. Dolcetti itself appeared in 2012 and has been successfully working and backing for you!</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img src="/static/icecreame/images/man.png" alt="" height="600px">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about us ebded -->
+
+
+<!-- Menue Section Staerd -->
+<section class="menue" id="menue">
+    <h1 class="text-center"> MENUE</h1>
+    <hr style="width: 20%;;height:3px;border-width:0;color:darkturquoise;background-color:darkturquoise">
+    <div class="container">
+        <div class="menue-1">
+            <h2 class="text-center "> <span class="material-symbols-outlined ">
+            icecream
+            </span> ICECREAME</h2>
+            <br> {% for item in item_list %}
+            <div class="row container ">
+                <div class="col-md-3 offset-md-2 img-div">
+                    <img class="card " style="min-width: 200px;max-height: 150px;" src="{{ item.item_image }} ">
+                </div>
+                <div class="col-md-4 ">
+                    <h3 style="font-family: 'Autour One', cursive;">{{ item.item_name }}</h3>
+                    <p style="font-family: 'Satisfy', cursive;font-size: 25px;">{{ item.item_desc }}</p>
+                    <h6>Price : ${{ item.item_price }}</h6>
+                </div>
+                <div class="col-md-2 ">
+                    <div class="col-md-2 ">
+                        <a href="{% url 'Icecreame:detail' item.id %} " class="btn btn-success ">Details</a>
+                    </div>
+                </div>
+            </div>
+            <hr style="width: 20%;"> {% endfor %}
+            <a href="/icecreame/icecreame/" class="btn btn-warning " style="margin-left:50% ;">EXPLORE MORE</a>
+
+            <br>
+
+            <hr style="width: 80%;">
+
+            <h2 class="text-center "> <span class="material-symbols-outlined ">
+        icecream
+        </span> SOFTY</h2>
+            <br> {% for item in item1_list %}
+            <div class="row container ">
+                <div class="col-md-3 offset-md-2 img-div">
+                    <img class="card " style="min-width: 200px;max-height: 150px;" src="{{ item.item1_image }} ">
+                </div>
+                <div class="col-md-4 ">
+                    <h3 style="font-family: 'Autour One', cursive;">{{ item.item1_name }}</h3>
+                    <p style="font-family: 'Satisfy', cursive;font-size: 25px;">{{ item.item1_desc }}</p>
+                    <h6>Price : ${{ item.item1_price }}</h6>
+                </div>
+                <div class="col-md-2 ">
+                    <div class="col-md-2 ">
+                        <a href="{% url 'Icecreame:detail1' item.id %} " class="btn btn-success ">Details</a>
+                    </div>
+                </div>
+            </div>
+            <hr style="width: 20%;">
+            <br> {% endfor %}
+            <a href="/icecreame/softy/" class="btn btn-warning " style="margin-left:50% ;">EXPLORE MORE</a>
+        </div>
+    </div>
+</section>
+<!-- Menue Section Ended -->
+
+
+<div class="col-md-12">
+    <div style="min-height: 900px;background-image: url(/static/icecreame/images/poster-1.jpg);background-size: cover;">
+    </div>
+</div>
+
+<!-- Feature section started -->
+<div class="container-fluid featurs py-5 ">
+    <h1 class="text-center"> FEATURES</h1>
+    <hr style="width: 20%;;height:3px;border-width:0;color:darkturquoise;background-color:darkturquoise">
+    <div class="container py-5 ">
+        <div class="row g-4 ">
+            <div class="col-md-6 col-lg-3 ">
+                <div class="featurs-item text-center rounded p-4 ">
+                    <div class="featurs-icon btn-square rounded-circle bg-info mb-5 mx-auto ">
+                        <i class="fas fa-car-side fa-3x text-white pt-4 "></i>
+                    </div>
+                    <div class="featurs-content text-center ">
+                        <h5>Free Shipping</h5>
+                        <p class="mb-0 ">Free on order over $300</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 ">
+                <div class="featurs-item text-center rounded p-4 ">
+                    <div class="featurs-icon btn-square rounded-circle bg-info mb-5 mx-auto ">
+                        <i class="fas fa-user-shield fa-3x text-white pt-4 "></i>
+                    </div>
+                    <div class="featurs-content text-center ">
+                        <h5>Security Payment</h5>
+                        <p class="mb-0 ">100% security payment</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 ">
+                <div class="featurs-item text-center rounded p-4 ">
+                    <div class="featurs-icon btn-square rounded-circle bg-info mb-5 mx-auto ">
+                        <i class="fas fa-heart fa-3x text-white pt-4 "></i>
+                    </div>
+                    <div class="featurs-content text-center ">
+                        <h5>Pure Organic</h5>
+                        <p class="mb-0 ">100% Handcrafted</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 ">
+                <div class="featurs-item text-center rounded p-4 ">
+                    <div class="featurs-icon btn-square rounded-circle bg-info mb-5 mx-auto ">
+                        <i class="fa fa-phone-alt fa-3x text-white pt-4 "></i>
+                    </div>
+                    <div class="featurs-content text-center ">
+                        <h5>24/7 Support</h5>
+                        <p class="mb-0 ">Support every time fast</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- feature section edned -->
+
+{% endblock body %}

@@ -1,0 +1,60 @@
+ {% extends 'icecreame/base.html' %} {% block title %}Orders | Icecreame Shop{% endblock title %} {% block body %}
+
+<br>
+<div class="container" style="background-image: url(/static/icecreame/images/bg-03.jpg)">
+    <h1 class="text-center " style="  color: brown;
+    font-family: 'Lilita One', sans-serif;">ORDER LIST</h1>
+    <hr style="width: 20%;;height:3px;border-width:0;color:darkturquoise;background-color:darkturquoise"> {% for item in order_list %}
+    <div class="row">
+        <br>
+        <div class="col-md-4 pt-1">
+            <img src="{{item.item.item_image}}" alt="" width="100px" height="100px" style="margin-left: 40%">
+        </div>
+        <div class="col-md-4 text-center pt-3">
+            <h5 style="font-weight: 400;"> {{item.item.item_name}}</h5>
+            <p>Order Id :{{item.order_id}}</p>
+            <!-- js to chnage qunatut -->
+            <p>Quantity :<span id="quantity">{{item.quantity}}</span></p>
+            {% if user.profile.user_type == 'Cust' %}
+            <a href="{% url 'Icecreame:update_order' item.item.id item.order_id %}" class="btn btn-warning">Edit</a> {% endif %}
+        </div>
+
+        <div class="col-md-4  text-center pt-2">
+            <h6> Total Price :{{total_price}} $</h6>
+            {% if user.profile.user_type == 'Rest' or user.profile.user_type == 'Admin' %}
+            <p>Order By :{{item.user.username}}</p>
+            {% endif %} {% if user.profile.user_type == 'Cust' %}
+            <a href="#" class="btn btn-success">Buy Now</a> {% endif %}
+        </div>
+    </div>
+    <hr style="width: 70%;"> {% endfor %}
+
+    <br>
+</div>
+
+<div class="container" style="background-image: url(/static/icecreame/images/bg-03.jpg)">
+    {% for item in order_list1 %}
+    <div class="row">
+        <div class="col-md-4 pt-1">
+            <img src="{{item.item1.item1_image}}" alt="" width="100px" height="100px" style="margin-left: 40%">
+        </div>
+        <div class="col-md-4 text-center pt-3">
+            <h5 style="font-weight: 400;">{{item.item1.item1_name}}</h5>
+            <p>Order Id :{{item.order1_id}}</p>
+            <p>Quantity :<span id="quantity1">{{item.quantity}}</span></p>
+            {% if user.profile.user_type == 'Cust' %}
+            <a href="{% url 'Icecreame:update_order1' item.item1.id item.order1_id %}" class="btn btn-warning">Edit</a> {% endif %}
+        </div>
+        <div class="col-md-4  text-center pt-2">
+            <h6>Total Price : {{total_price1}}</h6>
+            {% if user.profile.user_type == 'Rest' or user.profile.user_type == 'Admin' %}
+            <p>Order By :{{item.user.username}}</p>
+            {% endif %} {% if user.profile.user_type == 'Cust' %}
+            <a href="#" class="btn btn-success">Buy Now</a> {% endif %}
+        </div>
+    </div>
+    <hr style="width: 70%;">{% endfor %}
+
+    <br>
+</div>
+<br> {% endblock body %}

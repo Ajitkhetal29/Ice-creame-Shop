@@ -1,0 +1,34 @@
+{% extends 'icecreame/base.html' %} {% block title %}Review | Icecreame Shop{% endblock title %} {% block body %}
+
+<style>
+
+</style>
+<section class="conatiner" style="background-image: url(/static/icecreame/images/bg-02.jpg);">
+    <div class="container text-center">
+        <div class="mgb-40 padb-30 auto-invert line-b-4 align-center">
+            <h4 class="font-cond-l fg-accent lts-md mgb-10 text-primary" contenteditable="false">Not Yet Convinced?</h4>
+            <h1 class="font-cond-b fg-text-d lts-md fs-300 fs-300-xs no-mg" contenteditable="false" style="background-color: bisque;">Read Customer Reviews</h1>
+        </div>
+        <br>
+    </div>
+    <div class="container align-center">
+        <div class="row text-center">
+            {% for item in review_list %}
+            <div class="review col-md-4">
+                <ul class="align-center" style="list-style: none;">
+                    <li>
+                        <img src="https://img.freepik.com/premium-vector/brunette-man-avatar-portrait-young-guy-vector-illustration-face_217290-1035.jpg?w=740" alt="user" style="width: 200px;border-radius: 50%;">
+                        <p style="color:crimson;">"{{item.msg}}"</p>
+                        <hr style="width: 30%;">
+                        <h6 style="text-transform: uppercase;">{{item.name}}.</h6>
+                        <small style="color: brown;">{{item.date}}</small>
+
+                    </li>
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock body %}

@@ -1,0 +1,12 @@
+{% extends 'icecreame/base.html' %} {% block title %} Wishlist | Icecreame Shop{% endblock title %} {% block body %}
+
+<form method='POST'>
+    {% csrf_token %}
+
+    <h2>{{ pdcd }} Add Item to Wishlist</h2>
+
+    <button type="submit">Confirm</button>
+</form>
+
+
+{% endblock body %}
